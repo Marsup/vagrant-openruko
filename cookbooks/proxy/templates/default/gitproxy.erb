@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ -n "$http_proxy" ]; then
+  proxy_host=`echo "$http_proxy"| sed -e "s/[^/]*\/\/\([^@]*@\)\?\([^:/]*\)\(\(\:\)\([0-9]\+\)\)\?.*/\2/"`
+  proxy_port=`echo "$http_proxy"| sed -e "s/[^/]*\/\/\([^@]*@\)\?\([^:/]*\)\(\(\:\)\([0-9]\+\)\)\?.*/\5/"`
+  exec socat STDIO PROXY:"$proxy_host":$1:$2,proxyport="$proxy_port"
+else
+  exec socat STDIO TCP:$1:$2
+fi

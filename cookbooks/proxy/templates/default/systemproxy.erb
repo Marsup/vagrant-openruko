@@ -1,0 +1,11 @@
+<% if node['proxy']['http_proxy'] %>
+export http_proxy="<%= node['proxy']['http_proxy'] %>"
+export ftp_proxy="<%= node['proxy']['http_proxy'] %>"
+<% end %>
+<% if node['proxy']['https_proxy'] %>
+export https_proxy="<%= node['proxy']['https_proxy'] %>"
+<% end %>
+<% if node['proxy']['no_proxy'] %>
+export no_proxy="<%= node['proxy']['no_proxy'] %>"
+<% end %>
+export GIT_PROXY_COMMAND=gitproxy
