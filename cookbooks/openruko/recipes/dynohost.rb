@@ -13,6 +13,6 @@ bash "setup-dynohost" do
   code <<-EOF
   set -e
   make init
-  echo | make certs
+  echo -e '\n\n\n\n\n\n' | make certs
   EOF
 end
