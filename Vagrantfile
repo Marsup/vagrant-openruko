@@ -30,8 +30,6 @@ Vagrant::Config.run do |config|
     chef.add_recipe 'postgresql::server'
     chef.add_recipe 'git'
     chef.add_recipe 'nvm'
-    chef.add_recipe 'openruko'
-    chef.add_recipe 'heroku-toolbelt'
 
     chef.json = {
       :postgresql => {
@@ -49,10 +47,10 @@ Vagrant::Config.run do |config|
     }
   end
 
-  # Dir.glob('./scripts/post/*.sh').sort.each do |item|
-  #   next if item == '.' or item == '..'
-  #   config.vm.provision :shell do |shell|
-  #     shell.path = item
-  #   end
-  # end
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = 'cookbooks'
+
+    chef.add_recipe 'openruko'
+    chef.add_recipe 'heroku-toolbelt'
+  end
 end
