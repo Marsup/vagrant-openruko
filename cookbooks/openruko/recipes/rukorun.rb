@@ -5,10 +5,10 @@ git "/home/vagrant/openruko/rukorun" do
   action :checkout
 end
 
-script "setup-rukorun" do
-  interpreter "bash"
+bash "setup-rukorun" do
   user  "vagrant"
   cwd   "/home/vagrant/openruko/rukorun"
+  environment Hash['HOME' => '/home/vagrant']
 
   code <<-EOF
   npm install

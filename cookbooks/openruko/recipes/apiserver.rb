@@ -5,13 +5,14 @@ git "/home/vagrant/openruko/apiserver" do
   action :checkout
 end
 
-script "setup-apiserver" do
-  interpreter "bash"
+bash "setup-apiserver" do
   user  "vagrant"
   cwd   "/home/vagrant/openruko/apiserver"
+  environment Hash['HOME' => '/home/vagrant']
 
   code <<-EOF
+  set -e
   make init
-  ssh-keygen -At rsa
+  echo -e '\ny' | ssh-keygen -t rsa -N ''
   EOF
 end

@@ -5,12 +5,13 @@ git "/home/vagrant/openruko/dynohost" do
   action :checkout
 end
 
-script "setup-dynohost" do
-  interpreter "bash"
+bash "setup-dynohost" do
   user  "vagrant"
   cwd   "/home/vagrant/openruko/dynohost"
+  environment Hash['HOME' => '/home/vagrant']
 
   code <<-EOF
+  set -e
   make init
   echo | make certs
   EOF

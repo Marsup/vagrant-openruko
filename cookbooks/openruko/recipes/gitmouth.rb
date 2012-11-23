@@ -5,12 +5,13 @@ git "/home/vagrant/openruko/gitmouth" do
   action :checkout
 end
 
-script "setup-gitmouth" do
-  interpreter "bash"
+bash "setup-gitmouth" do
   user  "vagrant"
   cwd   "/home/vagrant/openruko/gitmouth"
+  environment Hash['HOME' => '/home/vagrant']
 
   code <<-EOF
+  set -e
   virtualenv --no-site-packages .
   make init
   echo '' | make certs

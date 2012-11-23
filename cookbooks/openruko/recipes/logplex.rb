@@ -5,10 +5,10 @@ git "/home/vagrant/openruko/logplex" do
   action :checkout
 end
 
-script "setup-logplex" do
-  interpreter "bash"
+bash "setup-logplex" do
   user  "vagrant"
   cwd   "/home/vagrant/openruko/logplex"
+  environment Hash['HOME' => '/home/vagrant']
 
   code <<-EOF
   npm install
