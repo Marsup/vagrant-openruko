@@ -40,8 +40,7 @@ Vagrant::Config.run do |config|
           { :method => "trust", :address => "::1/0" },
         ],
         :password => {
-          :postgres => "password",
-          :vagrant => "vagrant"
+          :postgres => "password"
         }
       }
     }
@@ -52,5 +51,8 @@ Vagrant::Config.run do |config|
 
     chef.add_recipe 'openruko'
     chef.add_recipe 'heroku-toolbelt'
+    chef.json = {
+      :apiserverkey => "ec1a8eb9-18a6-42c2-81ec-c0f0f615280c"
+    }
   end
 end
