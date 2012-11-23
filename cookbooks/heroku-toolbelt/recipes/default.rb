@@ -8,6 +8,7 @@ script "setup-heroku-toolbelt" do
   user  "root"
   code <<-EOF
   wget -O- https://toolbelt.heroku.com/apt/release.key | apt-key add -
+  apt-get update
   EOF
 end
 
