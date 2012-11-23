@@ -14,6 +14,7 @@ bash "setup-gitmouth" do
   set -e
   virtualenv --no-site-packages .
   make init
+  rm -fr certs
   echo '' | make certs
   EOF
 end
