@@ -5,6 +5,10 @@ Vagrant::Config.run do |config|
   config.vm.box = "openruko"
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
+#  For i686 prefer a 32bit VM
+#  config.vm.box = "openruko32"
+#  config.vm.box_url = "http://files.vagrantup.com/precise32.box"
+
   # Leave this as a separate part, it allows chef
   # to reload its env on the next part
   config.vm.provision :chef_solo do |chef|
@@ -52,7 +56,12 @@ Vagrant::Config.run do |config|
     chef.add_recipe 'openruko'
     chef.add_recipe 'heroku-toolbelt'
     chef.json = {
-      :apiserverkey => "ec1a8eb9-18a6-42c2-81ec-c0f0f615280c"
+      :apiserverkey => "ec1a8eb9-18a6-42c2-81ec-c0f0f615280c",
+      :s3 => {
+        :s3_key => ENV['S3_KEY'],
+        :s3_secret => ENV['S3_SECRET'],
+        :s3_bucket => ENV['S3_BUCKET']
+      }
     }
   end
 end
