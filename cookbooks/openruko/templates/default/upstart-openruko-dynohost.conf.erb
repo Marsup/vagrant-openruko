@@ -1,0 +1,9 @@
+start on starting openruko
+stop on stopping openruko
+respawn
+
+exec su - root -c 'cd /home/vagrant/openruko/dynohost; \
+export RUKORUN_PATH="/home/vagrant/openruko/rukorun";  \
+export CODONHOOKS_PATH="/home/vagrant/openruko/codonhooks";  \
+export APISERVER_KEY="<%= node['apiserver_key'] %>";  \
+dynohost/bin/dynohost >> /var/log/openruko/dynohost.log 2>&1'

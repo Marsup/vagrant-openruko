@@ -1,7 +1,7 @@
 git "/home/vagrant/openruko/apiserver" do
   user "vagrant"
   group "vagrant"
-  repository "git://github.com/openruko/apiserver.git"
+  repository "https://github.com/openruko/apiserver.git"
   action :checkout
 end
 
@@ -18,10 +18,8 @@ bash "setup-apiserver" do
 end
 
 bash "setup-postgres" do
-  user "postgres"
-
   code <<-EOF
-  psql <<< "CREATE ROLE vagrant PASSWORD 'md5ce5f2d27bc6276a03b0328878c1dc0e2' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;"
+  sudo -u postgres psql <<< "CREATE ROLE vagrant PASSWORD 'md5ce5f2d27bc6276a03b0328878c1dc0e2' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;"
   EOF
 end
 
@@ -36,9 +34,9 @@ bash "setup" do
   EOF
 end
 
-template "/etc/profile.d/openruko.sh" do
-  source "openruko.erb"
+template "/etc/init/openruko-apiserver.conf" do
+  source "upstart-openruko-apiserver.conf.erb"
   owner "root"
   group "root"
-  mode 0755
+  mode 0644
 end

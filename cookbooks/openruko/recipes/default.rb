@@ -15,6 +15,20 @@ directory "/home/vagrant/openruko" do
   mode 0700
 end
 
+template "/etc/profile.d/openruko.sh" do
+  source "profile-openruko.erb"
+  owner "root"
+  group "root"
+  mode 0755
+end
+
+template "/etc/init/openruko.conf" do
+  source "upstart-openruko.conf.erb"
+  owner "root"
+  group "root"
+  mode 0644
+end
+
 include_recipe "openruko::gitmouth"
 include_recipe "openruko::apiserver"
 include_recipe "openruko::dynohost"
@@ -22,3 +36,9 @@ include_recipe "openruko::logplex"
 include_recipe "openruko::rukorun"
 include_recipe "openruko::codonhooks"
 include_recipe "openruko::client"
+
+service "openruko" do
+  provider Chef::Provider::Service::Upstart
+  supports :restart => true, :start => true, :stop => true
+  action [:enable, :start]
+end
