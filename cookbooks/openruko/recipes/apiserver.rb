@@ -29,7 +29,6 @@ bash "setup" do
   environment Hash['HOME' => '/home/vagrant']
 
   code <<-EOF
-  sed -i s/\$\(uuidgen\)/ec1a8eb9-18a6-42c2-81ec-c0f0f615280c/ig ./setup
   echo -e "openruko\nvagrant\nopenruko@openruko.com\nvagrant" | ./setup
   EOF
 end
