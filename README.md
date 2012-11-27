@@ -40,7 +40,7 @@ $ ssh vagtrant@localhost:2222
 [vagrant] $ cd myapp
 [vagrant] $ git init
 [vagrant] $ npm init
-[vagrant] $ cat index.js << EOF
+[vagrant] $ cat > index.js << EOF
 var http = require('http');
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
@@ -49,10 +49,17 @@ http.createServer(function (req, res) {
 console.log('Server running at http://127.0.0.1:1337/');
 EOF
 
-[vagrant] $ git add index.js
+[vagrant] $ cat > Procfile << EOF
+web: node index.js
+EOF
+
+[vagrant] $ git add -A
 [vagrant] $ git commit -m 'fisrt commit'
 
 [vagrant] $ ~/openruko/client/openruko create myapp
+# email: openruko@openruko.com
+# Password: vagrant
+
 [vagrant] $ git push heroku master
 [vagrant] $ curl 127.0.0.1:1337
 ```
