@@ -1,6 +1,6 @@
 git "/home/vagrant/openruko/codonhooks" do
   user "vagrant"
   group "vagrant"
-  repository "git://github.com/openruko/codonhooks.git"
+  repository "https://github.com/openruko/codonhooks.git"
   action :checkout
 end

@@ -1,0 +1,6 @@
+start on starting openruko
+stop on stopping openruko
+respawn
+
+exec su - vagrant -c 'cd /home/vagrant/openruko/logplex; \
+logplex/bin/logplex >> /var/log/openruko/logplex.log 2>&1'

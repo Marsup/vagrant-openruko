@@ -1,0 +1,11 @@
+start on starting openruko
+stop on stopping openruko
+respawn
+
+exec su - vagrant -c 'cd /home/vagrant/openruko/apiserver; \
+export PG_USER="vagrant"; \
+export PG_PASSWORD="vagrant"; \
+export S3_KEY="<%= node['s3']['s3_key'] %>";  \
+export S3_SECRET="<%= node['s3']['s3_secret'] %>";  \
+export S3_BUCKET="<%= node['s3']['s3_bucket'] %>";  \
+apiserver/bin/apiserver >> /var/log/openruko/apiserver.log 2>&1'
