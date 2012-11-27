@@ -1,7 +1,7 @@
 git "/home/vagrant/openruko/dynohost" do
   user "vagrant"
   group "vagrant"
-  repository "git://github.com/openruko/dynohost.git"
+  repository "https://github.com/openruko/dynohost.git"
   action :checkout
 end
 
@@ -15,4 +15,11 @@ bash "setup-dynohost" do
   make init
   echo -e '\n\n\n\n\n\n' | make certs
   EOF
+end
+
+template "/etc/init/openruko-dynohost.conf" do
+  source "upstart-openruko-dynohost.conf.erb"
+  owner "root"
+  group "root"
+  mode 0644
 end

@@ -56,7 +56,7 @@ Vagrant::Config.run do |config|
     chef.add_recipe 'openruko'
     chef.add_recipe 'heroku-toolbelt'
     chef.json = {
-      :apiserverkey => "ec1a8eb9-18a6-42c2-81ec-c0f0f615280c",
+      :apiserver_key => "ec1a8eb9-18a6-42c2-81ec-c0f0f615280c",
       :s3 => {
         :s3_key => ENV['S3_KEY'],
         :s3_secret => ENV['S3_SECRET'],
