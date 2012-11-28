@@ -14,7 +14,21 @@ $ vagrant up
 # wait ...
 ```
 
-## Usage
+## Launch tests
+
+The first usage of `Vagrant OpenRuko` was for testing openruko on a clean VM.
+
+To launch the test run:
+
+```
+$ ssh vagtrant@localhost -p 2222
+[vagrant] $ cd ~/openruko/keepgreen
+[vagrant] $ ./run.sh
+```
+
+See also [keepgreen](https://github.com/Filirom1/orKeepGreen)
+
+## Standalone usage
 
 Before starting the VM export some environment variables, in the host machine:
 
@@ -35,7 +49,7 @@ export NO_PROXY=localhost
 Connect to the Vagrant VM with SSH, and create a new project (we will use node.js)
 
 ```
-$ ssh vagtrant@localhost:2222
+$ ssh vagtrant@localhost -p 2222
 [vagrant] $ mkdir myapp
 [vagrant] $ cd myapp
 [vagrant] $ git init

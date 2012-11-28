@@ -37,6 +37,7 @@ include_recipe "openruko::logplex"
 include_recipe "openruko::rukorun"
 include_recipe "openruko::codonhooks"
 include_recipe "openruko::client"
+include_recipe "openruko::keepgreen"
 
 service "openruko" do
   provider Chef::Provider::Service::Upstart
