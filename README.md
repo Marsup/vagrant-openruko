@@ -1,6 +1,6 @@
 # Vagrant OpenRuko
 
-This is the easiest way to test OpenRuko.
+This is the easiest way to test [OpenRuko](https://github.com/openruko).
 
 ## Install
 
