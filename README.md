@@ -35,7 +35,7 @@ export NO_PROXY=localhost
 Connect to the Vagrant VM with SSH, and create a new project (we will use node.js)
 
 ```
-$ ssh vagtrant@localhost:2222
+$ ssh vagrant@localhost:2222
 [vagrant] $ mkdir myapp
 [vagrant] $ cd myapp
 [vagrant] $ git init
