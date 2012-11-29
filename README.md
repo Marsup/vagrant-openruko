@@ -30,14 +30,6 @@ See also [keepgreen](https://github.com/Filirom1/orKeepGreen)
 
 ## Standalone usage
 
-Before starting the VM export some environment variables, in the host machine:
-
-```
-export S3_KEY=YOUR_S3_KEY
-export S3_SECRET=YOUR_S3_SECRET
-export S3_BUCKET=YOUR_S3_BUCKET
-```
-
 If you are under a proxy, export the following environment variable in the host machine:
 
 ```

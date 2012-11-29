@@ -5,6 +5,8 @@ respawn
 exec su - vagrant -c 'cd /home/vagrant/openruko/apiserver; \
 export PG_USER="vagrant"; \
 export PG_PASSWORD="vagrant"; \
+export S3_HOSTNAME="<%= node['s3']['s3_hostname'] %>";  \
+export S3_PORT="<%= node['s3']['s3_port'] %>";  \
 export S3_KEY="<%= node['s3']['s3_key'] %>";  \
 export S3_SECRET="<%= node['s3']['s3_secret'] %>";  \
 export S3_BUCKET="<%= node['s3']['s3_bucket'] %>";  \

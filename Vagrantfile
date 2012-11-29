@@ -19,7 +19,7 @@ Vagrant::Config.run do |config|
       :proxy => {
         :http_proxy => ENV['HTTP_PROXY'],
         :https_proxy => ENV['HTTPS_PROXY'],
-        :no_proxy => ENV['NO_PROXY']
+        :no_proxy => "mymachine.me," + ENV['NO_PROXY']
       }
     }
   end
@@ -34,6 +34,7 @@ Vagrant::Config.run do |config|
     chef.add_recipe 'postgresql::server'
     chef.add_recipe 'git'
     chef.add_recipe 'nvm'
+    chef.add_recipe 'fakes3'
 
     chef.json = {
       :postgresql => {
@@ -60,7 +61,9 @@ Vagrant::Config.run do |config|
       :s3 => {
         :s3_key => ENV['S3_KEY'],
         :s3_secret => ENV['S3_SECRET'],
-        :s3_bucket => ENV['S3_BUCKET']
+        :s3_bucket => ENV['S3_BUCKET'],
+		:s3_hostname => 'mymachine.me',
+		:s3_port => 4567
       }
     }
   end

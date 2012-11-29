@@ -1,0 +1,20 @@
+pre-start script
+
+bash << "EOF"
+  touch /var/log/fakes3.log
+  chown vagrant. /var/log/fakes3.log
+EOF
+
+end script
+
+start on (started network-interface
+          or started network-manager
+          or started networking)
+
+stop on (stopping network-interface
+         or stopping network-manager
+         or stopping networking)
+		 
+respawn
+
+exec su - vagrant -c 'fakes3 -r /tmp/fakes3_root -p 4567 >> /var/log/fakes3.log 2>&1'
