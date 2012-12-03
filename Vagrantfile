@@ -19,7 +19,7 @@ Vagrant::Config.run do |config|
       :proxy => {
         :http_proxy => ENV['HTTP_PROXY'],
         :https_proxy => ENV['HTTPS_PROXY'],
-        :no_proxy => "mymachine.me," + ENV['NO_PROXY']
+        :no_proxy => "mymachine.me," + (ENV['NO_PROXY'] || '')
       }
     }
   end
@@ -59,11 +59,11 @@ Vagrant::Config.run do |config|
     chef.json = {
       :apiserver_key => "ec1a8eb9-18a6-42c2-81ec-c0f0f615280c",
       :s3 => {
-        :s3_key => ENV['S3_KEY'],
-        :s3_secret => ENV['S3_SECRET'],
-        :s3_bucket => ENV['S3_BUCKET'],
-		:s3_hostname => 'mymachine.me',
-		:s3_port => 4567
+        :s3_key => ENV['S3_KEY'] || '123',
+        :s3_secret => ENV['S3_SECRET'] || '123',
+        :s3_bucket => ENV['S3_BUCKET'] || 'openruko',
+    		:s3_hostname => 'mymachine.me',
+    		:s3_port => 4567
       }
     }
   end
