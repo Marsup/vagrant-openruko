@@ -32,6 +32,7 @@ end
 
 include_recipe "openruko::gitmouth"
 include_recipe "openruko::apiserver"
+include_recipe "openruko::httprouting"
 include_recipe "openruko::dynohost"
 include_recipe "openruko::logplex"
 include_recipe "openruko::rukorun"

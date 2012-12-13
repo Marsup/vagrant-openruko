@@ -1,0 +1,9 @@
+start on starting openruko
+stop on stopping openruko
+respawn
+
+exec su - vagrant -c 'cd /home/vagrant/openruko/httprouting; \
+export PG_USER="vagrant"; \
+export PG_PASSWORD="vagrant"; \
+export HTTPROUTING_TLS=true; \
+httprouting/bin/httprouting >> /var/log/openruko/httprouting.log 2>&1'
