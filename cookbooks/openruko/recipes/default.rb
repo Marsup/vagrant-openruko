@@ -13,7 +13,7 @@ package "lxc"
 directory "/home/vagrant/openruko" do
   owner "vagrant"
   group "vagrant"
-  mode 0700
+  mode 0755
 end
 
 template "/etc/profile.d/openruko.sh" do

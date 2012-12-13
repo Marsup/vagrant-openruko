@@ -26,7 +26,7 @@ $ ssh vagtrant@localhost -p 2222
 [vagrant] $ ./run.sh
 ```
 
-See also [keepgreen](https://github.com/Filirom1/orKeepGreen)
+See also [integration-tests](https://github.com/openruko/integration-tests)
 
 ## Standalone usage
 
