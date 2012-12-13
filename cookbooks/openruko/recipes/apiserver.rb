@@ -13,6 +13,7 @@ bash "setup-apiserver" do
   code <<-EOF
   set -e
   make init
+  echo -e '\n\n\n\n\n\n\n\n' | make certs
   echo -e '\ny' | ssh-keygen -t rsa -N ''
   EOF
 end
