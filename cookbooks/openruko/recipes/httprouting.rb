@@ -13,7 +13,7 @@ bash "setup-httprouting" do
   code <<-EOF
   set -e
   make init
-  echo -e '\ny' | make certs
+  echo -e '\n\n\n\n\n\n\n\n' | make certs
   EOF
 end
 
