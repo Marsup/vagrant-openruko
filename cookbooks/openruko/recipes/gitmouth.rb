@@ -13,7 +13,6 @@ bash "setup-gitmouth" do
   code <<-EOF
   set -e
   if [ ! -f ./bin/activate ]; then
-	virtualenv --no-site-packages .
 	make init
   fi
   rm -fr certs
