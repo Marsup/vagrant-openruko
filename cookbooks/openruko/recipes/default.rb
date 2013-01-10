@@ -5,9 +5,6 @@ package "postgresql-server-dev-9.1"
 package "postgresql-contrib-9.1"
 package "uuid-dev"
 package "libssl0.9.8"
-package "python"
-package "python-dev"
-package "python-virtualenv"
 package "lxc"
 
 directory "/home/vagrant/openruko" do

@@ -33,8 +33,11 @@ Vagrant::Config.run do |config|
     chef.add_recipe 'postgresql::client'
     chef.add_recipe 'postgresql::server'
     chef.add_recipe 'git'
-    chef.add_recipe 'nvm'
+    chef.add_recipe 'nodejs::install_from_package'
+    chef.add_recipe 'python'
     chef.add_recipe 'fakes3'
+    chef.add_recipe 'openruko'
+    chef.add_recipe 'heroku-toolbelt'
 
     chef.json = {
       :postgresql => {
@@ -47,16 +50,7 @@ Vagrant::Config.run do |config|
         :password => {
           :postgres => "password"
         }
-      }
-    }
-  end
-
-  config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = 'cookbooks'
-
-    chef.add_recipe 'openruko'
-    chef.add_recipe 'heroku-toolbelt'
-    chef.json = {
+      },
       :apiserver_key => "ec1a8eb9-18a6-42c2-81ec-c0f0f615280c",
       :s3 => {
         :s3_key => ENV['S3_KEY'] || '123',
