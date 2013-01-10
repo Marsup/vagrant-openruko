@@ -8,7 +8,7 @@ Vagrant OpenRuko will generate a new VirtualBox VM with OpenRuko and all its dep
 
 ```
 $ sudo apt-get install vagrant
-$ git clone https://github.com/Marsup/vagrant-openruko.git
+$ git clone https://github.com/openruko/vagrant-openruko.git
 $ cd vagrant-openruko
 $ vagrant up
 # wait ...
